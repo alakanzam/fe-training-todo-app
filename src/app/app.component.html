@@ -1,7 +1,19 @@
-<app-users-list [my-users]="userData"
-                (user-deleted)="appComponentDeleteUser($event)"></app-users-list>
+<div class="container">
+  <h1 class="text-center">To-Do List</h1>
+  <div class="text-center">
+    Click the "X" to remove the item from your list
+    Click the item to mark it as complete
+  </div>
 
-<button (click)="clear()"
-        [style.width]="'100px'"
-        [style.height]="'200px'"
-        *ngFor="let item of [1, 2, 3]">Clear</button>
+  <div class="input-group mb-2">
+    <input id="itemText" class="form-control"
+           [(ngModel)]="itemText" (keypress)="onKeyPressed($event)">
+    <div class="input-group-append">
+      <button  class="btn btn-outline-secondary"
+               (click)="addTodoItem()">+</button>
+    </div>
+  </div>
+
+  <todo-items [items]="items" (deleteTodoItemEvent)="deleteTodoItem($event)"
+              (markItemAsCompletedEvent)="markItemAsCompleted($event)"></todo-items>
+</div>
