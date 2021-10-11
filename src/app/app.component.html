@@ -1,19 +1,7 @@
-<div class="container">
-  <h1 class="text-center">To-Do List</h1>
-  <div class="text-center">
-    Click the "X" to remove the item from your list
-    Click the item to mark it as complete
-  </div>
+<select (change)="handleDropdownChangeEvent($event)">
+  <option>1</option>
+  <option>2</option>
+  <option>3</option>
+</select>
 
-  <div class="input-group mb-2">
-    <input id="itemText" class="form-control"
-           [(ngModel)]="itemText" (keypress)="onKeyPressed($event)">
-    <div class="input-group-append">
-      <button  class="btn btn-outline-secondary"
-               (click)="addTodoItem()">+</button>
-    </div>
-  </div>
-
-  <todo-items [items]="items" (deleteTodoItemEvent)="deleteTodoItem($event)"
-              (markItemAsCompletedEvent)="markItemAsCompleted($event)"></todo-items>
-</div>
+<item-container></item-container>
