@@ -7,4 +7,4 @@ export class MailService {
     console.log('Send by using basic email');
   }
 
-}``
+}

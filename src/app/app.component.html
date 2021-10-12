@@ -1,7 +1,17 @@
-<select (change)="handleDropdownChangeEvent($event)">
-  <option>1</option>
-  <option>2</option>
-  <option>3</option>
-</select>
+<router-outlet></router-outlet>
 
-<item-container></item-container>
+<ul>
+  <li><a routerLink="/dashboard" routerLinkActive="text-bold" [routerLinkActiveOptions]="{exact: true}">Go to dashboard</a>
+  </li>
+  <li>
+    <a routerLink="/dashboard/users" routerLinkActive="text-bold" [routerLinkActiveOptions]="{exact: true}">Go to user management</a>
+  </li>
+  <li>
+    <a routerLink="/dashboard/premium-user" routerLinkActive="text-bold" [routerLinkActiveOptions]="{exact: true}">Go to premium user</a>
+  </li>
+  <li>
+    <a routerLink="/">Go to main</a>
+  </li>
+</ul>
+
+

@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {MailService} from '../services/mail-service';
-import {MessageService} from '../services/message.service';
+import {UserService} from '../services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +8,20 @@ import {MessageService} from '../services/message.service';
 })
 export class AppComponent implements OnInit {
 
+  //#region Properties
+
+  private readonly a: number;
+
+  public students: any[];
+
+  //#endregion
+
   //#region Constructor
 
   public constructor(
-    public messageService: MessageService
+    public readonly userService: UserService
   ) {
+
   }
 
   //#endregion
@@ -22,15 +30,17 @@ export class AppComponent implements OnInit {
 
   public ngOnInit(): void {
 
+    this.userService.loadUsersAsync()
+      .toPromise()
+      .then(m => this.students = m);
   }
 
-  public sendMessageToItem(): void {
-    this.messageService.sendMessageClicked
-      .emit('id');
-  }
+  //#endregion
 
-  public handleDropdownChangeEvent(item): void {
-    console.log(item);
+  //#region Methods
+
+  public convertAddress(address: any): string {
+    return `${address.street} ${address.city}`;
   }
 
   //#endregion
