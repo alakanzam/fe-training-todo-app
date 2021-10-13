@@ -2,9 +2,9 @@ import {Component} from '@angular/core';
 
 @Component({
   // tslint:disable-next-line:component-selector
-  selector: 'dashboard',
-  templateUrl: 'dashboard.component.html'
+  selector: 'users',
+  templateUrl: 'users.component.html'
 })
-export class DashboardComponent {
+export class UsersComponent {
 
 }

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from '../services/user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,8 @@ export class AppComponent implements OnInit {
   //#region Constructor
 
   public constructor(
-    public readonly userService: UserService
+    public readonly userService: UserService,
+    protected router: Router
   ) {
 
   }
@@ -39,8 +41,12 @@ export class AppComponent implements OnInit {
 
   //#region Methods
 
-  public convertAddress(address: any): string {
-    return `${address.street} ${address.city}`;
+  public clickPurchaseLaptop(): void {
+    if (confirm('Are you sure to purchase this laptop ?')) {
+      this.router.navigate(['/shopping-cart']);
+    }
+
+    return;
   }
 
   //#endregion
