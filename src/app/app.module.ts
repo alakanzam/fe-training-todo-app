@@ -15,6 +15,7 @@ import {ShoppingCartGuard} from '../guards/shopping-cart.guard';
 import {ShoppingCartOutGuard} from '../guards/shopping-cart.out-guard';
 import {ProductService} from '../services/product.service';
 import {ShoppingCartResolve} from '../resolves/shopping-cart.resolve';
+import {NavigationBarModule} from './master-layout/navigation-bar/navigation-bar.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {ShoppingCartResolve} from '../resolves/shopping-cart.resolve';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ToAddressTextPipeModule
+    ToAddressTextPipeModule,
+    NavigationBarModule
   ],
   providers: [
     ShoppingCartResolve,

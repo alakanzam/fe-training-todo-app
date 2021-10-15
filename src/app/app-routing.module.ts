@@ -24,6 +24,18 @@ const routes: Routes = [
     canDeactivate: [ShoppingCartOutGuard],
     loadChildren: () => import('./shopping-cart/shopping-cart.module')
       .then(m => m.ShoppingCartModule)
+  },
+  {
+    path: 'side-bar',
+    loadChildren: () => import('./master-layout/side-bar/side-bar.module')
+      .then(m => m.SideBarModule),
+    outlet: 'sidebar'
+  },
+  {
+    path: 'navbar',
+    loadChildren: () => import('./master-layout/navigation-bar/navigation-bar.module')
+      .then(m => m.NavigationBarModule),
+    outlet: 'navbar'
   }
 ];
 

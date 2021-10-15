@@ -1,15 +1,12 @@
+<!--<div>Outlet 1</div>-->
+<!--<router-outlet name="sidebar"></router-outlet>-->
+
+<!--<div>Outlet 2</div>-->
+<!--<router-outlet name="navbar"></router-outlet>-->
+<div>This is home</div>
+<!--<div>Outlet 3</div>-->
 <router-outlet></router-outlet>
+<navigation-bar></navigation-bar>
 
-<!--<ul>-->
-<!--  <li>-->
-<!--    <a [routerLink]="'/shopping-cart'" routerLinkActive="bold">Purchase link</a>-->
-<!--  </li>-->
-<!--  <li>-->
-<!--    <a [routerLink]="'/users'" routerLinkActive="bold">Users</a>-->
-<!--  </li>-->
-<!--</ul>-->
-
-
-<!--<button class="btn btn-outline-primary" (click)="clickPurchaseLaptop()">-->
-<!--  Purchase laptop-->
-<!--</button>-->
+<a [routerLink]="['/users']">Users</a>
+<a [routerLink]="['/']">Home</a>
