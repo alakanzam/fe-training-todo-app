@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-6">
+    <button class="btn btn-outline-primary" routerLink="/new-recipe">New recipe</button>
+  </div>
+
+  <ng-container [ngSwitch]="isActive('')">
+    <div class="col-6" *ngSwitchCase="false">
+      <router-outlet></router-outlet>
+    </div>
+    <div class="col-6" *ngSwitchDefault>
+      Please input new recipe
+    </div>
+  </ng-container>
+
+</div>

@@ -1,18 +1,17 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 
 const routes: Routes = [{
-  path: 'template-driven',
-  loadChildren: () => import('./template-driven-form-demo/template-driven-form-demo.module')
-    .then(m => m.TemplateDrivenFormDemoModule)
-}, {
-  path: 'reactive-form',
-  loadChildren: () => import('./reactive-form-demo/reactive-form-demo.module')
-    .then(m => m.ReactiveFormDemoModule)
+  path: '',
+  loadChildren: () => import('./recipe-main-page/recipe-main-page.module')
+    .then(m => m.RecipeMainPageModule)
 }];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    enableTracing: true
+  })],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
