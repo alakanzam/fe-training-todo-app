@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {AbstractControl, FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 import {MyValidator} from './my-validator';
 
 @Component({
@@ -27,6 +27,7 @@ export class ReactiveFormDemoComponent {
         MyValidator.threeLetter
       ]));
     this.registrationFormGroup.addControl('age', new FormControl());
+    this.registrationFormGroup.addControl('hobbies', new FormArray([new FormControl(), new FormControl()]));
   }
 
   //#endregion
@@ -35,6 +36,35 @@ export class ReactiveFormDemoComponent {
 
   public handleFormSubmission(event): void {
     console.log(this.registrationFormGroup);
+  }
+
+  public getHobbiesControls(): AbstractControl[] {
+    return (this.registrationFormGroup.get('hobbies') as FormArray).controls;
+  }
+
+  public addHobby(): void {
+
+    const formArray = (this.registrationFormGroup.get('hobbies') as FormArray);
+    const items = [1, 2, 3];
+    for (let i = 0; i < items.length; i++) {
+      const abstractControl = formArray.at(i);
+      if (!abstractControl) {
+        formArray.push(new FormControl(items[i]));
+        continue;
+      }
+      abstractControl.patchValue(items[i]);
+    }
+
+    //
+    // formArray.push(new FormControl('', [
+    //   Validators.required
+    // ]));
+
+  }
+
+  public clearHobbies(): void {
+    const formArray = (this.registrationFormGroup.get('hobbies') as FormArray);
+    formArray.clear();
   }
 
   //#endregion

@@ -28,6 +28,22 @@
     Age:  {{registrationFormGroup.get('age').value}}
   </div>
 
+  <label>Hobbies</label>
+  <button class="btn btn-link" (click)="addHobby()">
+    Add
+  </button>
+  <button class="btn btn-link" (click)="clearHobbies()">
+    Clear
+  </button>
+  <ng-container *ngFor="let formControl of getHobbiesControls()">
+    <div class="form-group">
+      <input class="form-control" [formControl]="formControl">
+    </div>
+  </ng-container>
+  <div>
+
+
+    {{registrationFormGroup.value | json}}
   <button type="submit">
     Submit
   </button>
