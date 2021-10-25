@@ -29,37 +29,8 @@ export class AppComponent {
 
   //#region Methods
 
-  public addTodoItem(): void {
-
-    const item = new ToDoItem();
-    item.id = this._idCounter;
-    item.title = this.itemText;
-    item.completed = false;
-
-    this.items.push(item);
-    this.itemText = '';
-    this._idCounter++;
-  }
-
-  public onKeyPressed(event: KeyboardEvent): void {
-
-    if (event.key !== 'Enter') {
-      return;
-    }
-
-    this.addTodoItem();
-  }
-
-  public deleteTodoItem(item: ToDoItem): void {
-    const tobeDeletedItem = this.items.findIndex(x => x.id === item.id);
-    this.items.splice(tobeDeletedItem, 1);
-  }
-
-  public markItemAsCompleted(item: ToDoItem): void {
-    console.log('markItemAsCompleted called');
-    const toBeCompletedItem = this.items.findIndex(x => x.id === item.id);
-    this.items[toBeCompletedItem].completed = true;
-    this.items = [...this.items];
+  public handleItemSelectedEvent(item: any): void {
+    alert(`${item} has been selected`);
   }
   //#endregion
 }

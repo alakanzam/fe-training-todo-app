@@ -1,0 +1,16 @@
+
+
+<div class="dropdown">
+  <input class="form-control"
+         [ngModel]="keyword" [ngModelOptions]="{standalone: true}"
+         (ngModelChange)="handleKeywordChanged($event)"
+         (focusin)="makeDropdownShown()" (focusout)="makeDropdownHidden()">
+  <div class="dropdown-menu"
+       [class.show]="isShown && items && items.length > 0">
+    <button *ngFor="let item of items"
+            type="button"
+       class="dropdown-item" (click)="selectItem(item);  ">
+      {{item}}
+    </button>
+  </div>
+</div>

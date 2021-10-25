@@ -3,8 +3,9 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {ToDoItemsModule} from './to-do-items/to-do-items.module';
 import {FormsModule} from '@angular/forms';
+import {TodoItemModule} from './todo-item/todo-item.module';
+import {MySelectorModule} from './my-selector/my-selector.module';
 
 @NgModule({
   declarations: [
@@ -13,8 +14,9 @@ import {FormsModule} from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ToDoItemsModule,
-    FormsModule
+    FormsModule,
+    TodoItemModule,
+    MySelectorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,19 +1,7 @@
-<div class="container">
-  <h1 class="text-center">To-Do List</h1>
-  <div class="text-center">
-    Click the "X" to remove the item from your list
-    Click the item to mark it as complete
-  </div>
+<div class="col-6 offset-3 mt-2">
+  <my-selector [items]="['Car 01', 'Plane 01', 'Jet plane']"
+               (itemSelected)="handleItemSelectedEvent($event)"></my-selector>
 
-  <div class="input-group mb-2">
-    <input id="itemText" class="form-control"
-           [(ngModel)]="itemText" (keypress)="onKeyPressed($event)">
-    <div class="input-group-append">
-      <button  class="btn btn-outline-secondary"
-               (click)="addTodoItem()">+</button>
-    </div>
-  </div>
-
-  <todo-items [items]="items" (deleteTodoItemEvent)="deleteTodoItem($event)"
-              (markItemAsCompletedEvent)="markItemAsCompleted($event)"></todo-items>
+  <my-selector [items]="[1, 2, 3, 4]"
+               (itemSelected)="handleItemSelectedEvent($event)"></my-selector>
 </div>
