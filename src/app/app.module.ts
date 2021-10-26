@@ -3,7 +3,6 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {ToDoItemsModule} from './to-do-items/to-do-items.module';
 import {FormsModule} from '@angular/forms';
 
 @NgModule({
@@ -13,7 +12,6 @@ import {FormsModule} from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ToDoItemsModule,
     FormsModule
   ],
   providers: [],
